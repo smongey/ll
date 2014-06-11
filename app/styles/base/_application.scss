@@ -20,12 +20,172 @@
  * _component_name.scss => Styles for a component of functionality (e.g. – modal).
  * _page_name.scss      => Styles for page specific elements.
  * ---------------------------------------------------------------------------
+ *
  */
 
-.header-primary {}
+body { 
+	margin: 0; padding: 0; 
+	min-width: 1000px;
+	overflow-y: scroll; 
+	font: 15px/24px 'Helvetica', sans-serif;
+	letter-spacing: em(1);
+}
 
-.nav-primary {}
+// Header
+header {
+	text-align: center;
+	height: 150px;
+	h1 {
+		margin-top: 55px;
+		height: 100%;
+		vertical-align: middle;
+		display: inline-block;
+		text-indent: -9999px;
+		width: 330px;
+		height: 60px;
+		background: aqua url('../../images/logo.png');
+		background-image: url('../../images/logo.svg'), none;
+	}
+}
 
-.content-primary {}
+// Navigation
+nav {
+	min-width: 1000px;
+	padding: em(25) em(70);
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	text-align: center;
+	background: white;
+	.main { 
+		background: white;
+		box-shadow: 2px 2px 2px white;
+		display: inline-block;
+		position: relative;
+		z-index: 9999;
+		box-shadow: 0px 20px 20px 28px white;
+		& > li {
+			display: inline-block;
+			padding: 0 em(17); 
+		}
+		a { color:lighten(black, 60%); }
+		a:hover, a.active { color: black; }
+	}
+	
+	.studio {
+		position: absolute;
+		width: 140px;
+		display: block;
+		bottom: em(70);
+		margin-left: em(-22);
+		background: rgba(255,255,255,0.8);
+		text-align: left;
+		padding: em(15) em(20) 0 em(22);
+		overflow: hidden;
+		margin-bottom: -200px;
+		z-index: 8888;
+		@include transition(all cubic-bezier(0.86, 0, 0.07, 1) .6s);
+		&.open {
+			margin-bottom: -15px;
+		}
+		li {
+			padding-bottom: em(5); 
+		}
+		a { color:lighten(black, 60%); }
+		a:hover { color: black; }
+	}
 
-.footer-primary {}
+	.social {
+		position: absolute;
+		right: em(70);
+		bottom: em(25);
+		& > li {
+			display: inline-block;
+			text-indent: -9999px;
+			width: em(18); height:em(18);
+			background: black;
+			border-radius: em(9);
+			margin-right: em(2);
+			&:hover, a.active { background: tint(black, 60%); }
+		}
+		
+	}
+}
+
+// Home
+.home {
+	padding: 0 em(70);
+	text-align: center;
+	img {
+		max-height: 100%;
+		min-width: 900px;
+	}
+}
+
+.projects {
+	width: 100%;
+	overflow-x: hidden; 
+	padding-bottom: em(100);	
+
+	section:first-child {
+		h4 { padding-top: 0; }
+	}
+
+	h4 { 
+		font: normal 15px/20px 'Helvetica', sans-serif;
+		color: tint(black, 60%);
+		padding: em(5) 0 em(3) em(52);
+		
+	}
+// 	section > div {
+// 		a { display: inline-block; white-space: nowrap; height: 100%;
+// 			img { max-height: 100%; }
+// 		}
+// 	}
+// }
+}
+
+.studio {
+	@include outer-container;
+	.image {
+		@include span-columns(7);
+		
+	}
+	.text {
+		@include span-columns(5);
+		padding: 0 0 0 em(30);
+		font-size: 13px;
+		color: black;
+		line-height: 22px;
+	}
+}
+
+.people, .awards, .publications {
+	width: 100%;
+	height: 100%;
+	padding: em(60) 0 0 0;
+	background: url('http://placehold.it/50x50/e6e6e6/ffffff') 0 0 repeat;
+	.jThumbnailScroller {
+		height: 500px !important;
+		padding: 0 em(100) 0 em(100);
+	}
+	.jTscroller a {
+		div {
+			img {
+				padding-bottom: 10px;
+			}
+			p {
+				padding-bottom: 10px;
+			}
+			display: block;
+			float: left;
+			width: 330px; 
+			height: 500px;
+			margin: 0;
+			margin-right: 40px;
+			color: black;
+			font-size: 14px;
+			line-height: 22px;
+		}
+	}
+}

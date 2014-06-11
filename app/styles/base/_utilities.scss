@@ -61,3 +61,11 @@
 .no-padding {
   padding: 0;
 }
+
+* { 
+  -webkit-font-smoothing: antialiased; 
+  -webkit-box-sizing: border-box; 
+  -o-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+

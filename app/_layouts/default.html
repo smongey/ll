@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ page.title }}</title>
+    <title>Lawrence &amp; Long Architects {% if page.title %} &mdash; {{ page.title }} {% endif %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,10 +22,12 @@
     <![endif]-->
 
     {% include shared/header.html %}
-    {% include shared/nav.html %}
-    {{ content }}
-    {% include shared/footer.html %}
 
+    <div class="wrap">
+      {{ content }}
+    </div>
+
+    {% include shared/nav.html %}
     {% include shared/scripts.html %}
     {% include shared/google-analytics.html %}
   </body>
