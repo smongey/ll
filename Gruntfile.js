@@ -308,7 +308,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            src: ['dist/**/*.html', 'dist/scripts/*.js']
+            src: ['dist/**/*.html', 'dist/scripts/*.js', 'dist/styles/*.css']
           }
         ]
       }
