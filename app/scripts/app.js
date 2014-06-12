@@ -2,22 +2,22 @@
 
 function l(o){ console.log(o) }
 
-var home = {
-	container : $('.home'),
-	headerHeight : $('header').height(),
-	navHeight : $('nav').outerHeight(),
-	wH : $(window).height(),
+// var home = {
+// 	container : $('.home'),
+// 	headerHeight : $('header').height(),
+// 	navHeight : $('nav').outerHeight(),
+// 	wH : $(window).height(),
 
-	remainingHeight : function(){
-		return	Math.round(this.wH - (this.headerHeight + this.navHeight))
+// 	remainingHeight : function(){
+// 		return	Math.round(this.wH - (this.headerHeight + this.navHeight))
 
-	},
-	scaleHome : function(){
-		this.container.css({
-		 'height' : this.remainingHeight()
-		});
-	}
-}
+// 	},
+// 	scaleHome : function(){
+// 		this.container.css({
+// 		 'height' : this.remainingHeight()
+// 		});
+// 	}
+// }
 
 var nav = {
 	isClosed : true,
@@ -25,7 +25,7 @@ var nav = {
 }	
 
 $(function(){
-	//home.scaleHome();	
+
 	console.log('HONK');
 
 	$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
@@ -62,8 +62,6 @@ $(function(){
 
 $(window).on('resize', function(){
 	home.wH = $(window).height();
-	//home.scaleHome();	
-	console.log('resized');
 
 	nav.studioPos = $('#studio').offset().left;
 	$('ul.studio').css({
