@@ -1,7 +1,6 @@
 // sean fun
 
-function l(o){ console.log(o)
-}
+function l(o){ console.log(o) }
 
 var home = {
 	container : $('.home'),
@@ -42,6 +41,21 @@ $(function(){
 		autoScrollingEasing:"easeInOutQuad", 
 		autoScrollingDelay:500  
 	});
+
+	$(".royalSlider").royalSlider({
+        // options go here
+        autoScaleSlider: true,
+        autoScaleSliderWidth: 600,
+        imageScaleMode: 'fit-if-smaller', 
+        keyboardNavEnabled: true,
+       	imageScalePadding: 0,
+        arrowsNav: true,
+        controlNavigation: 'none',
+        arrowsNavAutoHide: false,
+        slidesSpacing: 0,
+        transitionSpeed: 400,
+        controlsInside: false
+    });
 
 });
 

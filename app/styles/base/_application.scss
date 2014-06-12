@@ -43,8 +43,8 @@ header {
 		text-indent: -9999px;
 		width: 330px;
 		height: 60px;
-		background: aqua url('../../images/logo.png');
-		background-image: url('../../images/logo.svg'), none;
+		background: transparent url('/images/logo.png');
+		background-image: url('/images/logo.svg'), none;
 	}
 }
 
@@ -57,6 +57,7 @@ nav {
 	bottom: 0;
 	text-align: center;
 	background: white;
+	z-index: 9999;
 	.main { 
 		background: white;
 		box-shadow: 2px 2px 2px white;
@@ -102,13 +103,21 @@ nav {
 		& > li {
 			display: inline-block;
 			text-indent: -9999px;
-			width: em(18); height:em(18);
-			background: black;
-			border-radius: em(9);
+			width: 18px; height: 18px;
+			background-color: black;
+			background-image: url('/images/social.png');
+			background-image: url('/images/social.svg'), none;
+			background-repeat: none;
+			background-position: 0 0;
+			border-radius: 9px;
 			margin-right: em(2);
-			&:hover, a.active { background: tint(black, 60%); }
+
+			&:hover, a.active { background-color: tint(black, 60%); }
+			&:nth-child(2) { background-position: -18px 0; }
+			&:nth-child(3) { background-position: -36px 0; }
+			&:nth-child(4) { background-position: -54px 0; }
 		}
-		
+
 	}
 }
 
@@ -122,7 +131,7 @@ nav {
 	}
 }
 
-.projects {
+.projects, .project {
 	width: 100%;
 	overflow-x: hidden; 
 	padding-bottom: em(100);	
@@ -145,7 +154,7 @@ nav {
 // }
 }
 
-.studio {
+.studio, .news, .sustainability, .conservation, .contact {
 	@include outer-container;
 	.image {
 		@include span-columns(7);
@@ -157,26 +166,148 @@ nav {
 		font-size: 13px;
 		color: black;
 		line-height: 22px;
+
+		h2 {
+			font: normal 13px/22px 'Helvetica', sans-serif;
+			letter-spacing: em(1);
+			padding-bottom: em(12);
+		}
 	}
+}
+
+.single {
+	min-width: 1150px;
+	padding: em(60) em(50);
+	
+	.close {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		display: block;
+		right:20px;
+		margin-top: -20px;
+		padding: 14px 0 0 5px;
+		z-index: 8888;
+		&:before {
+			content: ' ';
+			position: absolute;
+			width:20px;
+			height:2px;
+			background: #666;
+			@include transform-origin(50% 50%);
+			@include transform(rotate(-45deg));
+		}
+		&:after {
+			content: ' ';
+			position: absolute;
+			width:20px;
+			height:2px;
+			background: #666;
+			@include transform-origin(50% 50%);
+			@include transform(rotate(45deg));
+		}
+		&:hover {
+			&:before, &:after { background: #000; }
+		}		
+	}
+
+	// RoyalSlider stuffs
+	.rsSlide, .rsOverflow, .rsDefault {
+		background: transparent;
+	}
+	.rsImg .rsMainSlideImage {
+		margin: 0;
+		padding: 0;
+	}
+	.rsArrowIcn {
+		background: transparent;
+		opacity: 1;
+		padding: 15px 0 0 10px;
+		transform-origin: 0px 0px !important;
+		&:before {
+			content: ' ';
+			position: absolute;
+			width:15px;
+			height:2px;
+			background: #666;
+			@include transform-origin(0% 100%);
+			@include transform(rotate(-45deg));
+		}
+		&:after {
+			content: ' ';
+			position: absolute;
+			width:15px;
+			height:2px;
+			background: #666;
+			@include transform-origin(0% 0%);
+			@include transform(rotate(45deg));
+		}
+		&:hover {
+			background-color: transparent !important;
+			&:before, &:after { background: #000; }
+			
+		} 
+	}
+	.rsArrowLeft {
+		margin-left: -44px;
+		z-index: 8888;
+		position: absolute;
+		.rsArrowIcn {
+			&:before { 
+				@include transform(rotate(-45deg));
+			}
+			&:after { 
+				@include transform(rotate(45deg));
+			}
+		}
+		
+	}
+	.rsArrowRight {
+		margin-right: -44px;
+		z-index: 8888;
+		position: absolute;
+		.rsArrowIcn {
+			&:before { 
+				@include transform-origin(100% 0%);
+				@include transform(rotate(45deg));
+			}
+			&:after { 
+				@include transform-origin(100% 100%);
+				@include transform(rotate(-45deg));
+			}
+		}
+	}	
+
+	.image {
+		@include span-columns(7);
+		
+	}
+	.text {
+		@include span-columns(5);
+		padding: 0 em(100) 0 em(30);
+		font-size: 13px;
+		color: black;
+		line-height: 22px;
+
+		h2 {
+			font: normal 13px/22px 'Helvetica', sans-serif;
+			letter-spacing: em(1);
+			padding-bottom: em(12);
+		}
+	}
+
 }
 
 .people, .awards, .publications {
 	width: 100%;
 	height: 100%;
 	padding: em(60) 0 0 0;
-	background: url('http://placehold.it/50x50/e6e6e6/ffffff') 0 0 repeat;
 	.jThumbnailScroller {
 		height: 500px !important;
 		padding: 0 em(100) 0 em(100);
 	}
-	.jTscroller a {
-		div {
-			img {
-				padding-bottom: 10px;
-			}
-			p {
-				padding-bottom: 10px;
-			}
+	.jTscroller {
+		& > div {
 			display: block;
 			float: left;
 			width: 330px; 
@@ -184,8 +315,23 @@ nav {
 			margin: 0;
 			margin-right: 40px;
 			color: black;
-			font-size: 14px;
-			line-height: 22px;
+			font: normal 14px/22px 'Helvetica', sans-serif;
+			img {
+				padding-bottom: 10px;
+			}
+			p {
+				padding-bottom: 10px;
+				padding-right: 20px;
+			}
+			h2 {
+				font: normal 14px/22px 'Helvetica', sans-serif;
+				letter-spacing: em(1);
+				padding-bottom: 15px;
+			}
+			a { margin: 0; display: inline-block; float: none; }
 		}
 	}
+}
+.people {
+	background: url('http://placehold.it/50x50/e6e6e6/ffffff') 0 0 repeat;
 }
