@@ -292,6 +292,10 @@ module.exports = function (grunt) {
               replacement: '$1http://smongey.github.io/ll/styles/'
             },
             {
+              match: /("|'?)\/?images\//g,
+              replacement: '$1http://smongey.github.io/ll/images/'
+            },
+            {
               match: /(<a[^>]*href="?)(\/)/g,
               replacement: '$1http://smongey.github.io/ll/'
             },
