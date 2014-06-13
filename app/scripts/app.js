@@ -9592,7 +9592,7 @@ var nav = {
 	studioPos : $('#studio').offset().left
 }	
 
-$(function(){
+$(document).ready(function(){
 
 	console.log('HONK');
 
@@ -9627,6 +9627,22 @@ $(function(){
 
 });
 
+
+$(document).on('load', function(){
+	$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
+		scrollerType:"hoverAccelerate", 
+		scrollerOrientation:"horizontal", 
+		scrollEasing:"easeOutCirc", 
+		scrollEasingAmount:800, 
+		acceleration:4, 
+		scrollSpeed:800, 
+		noScrollCenterSpace:10, 
+		autoScrolling:0, 
+		autoScrollingSpeed:2000, 
+		autoScrollingEasing:"easeInOutQuad", 
+		autoScrollingDelay:500  
+	});
+});
 
 $(window).on('resize', function(){
 	home.wH = $(window).height();
