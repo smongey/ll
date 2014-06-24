@@ -9596,19 +9596,38 @@ $(document).ready(function(){
 
 	console.log('HONK');
 
-	$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
-		scrollerType:"hoverAccelerate", 
-		scrollerOrientation:"horizontal", 
-		scrollEasing:"easeOutCirc", 
-		scrollEasingAmount:800, 
-		acceleration:4, 
-		scrollSpeed:800, 
-		noScrollCenterSpace:10, 
-		autoScrolling:0, 
-		autoScrollingSpeed:2000, 
-		autoScrollingEasing:"easeInOutQuad", 
-		autoScrollingDelay:500  
-	});
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+		$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
+			scrollerType:"clickButtons", 
+			scrollerOrientation:"horizontal", 
+			scrollSpeed:2, 
+			scrollEasing:"easeOutCirc", 
+			scrollEasingAmount:600, 
+			acceleration:4, 
+			scrollSpeed:800, 
+			noScrollCenterSpace:10, 
+			autoScrolling:0, 
+			autoScrollingSpeed:2000, 
+			autoScrollingEasing:"easeInOutQuad", 
+			autoScrollingDelay:500 
+		});	
+	} else {
+		$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
+			scrollerType:"hoverAccelerate", 
+			scrollerOrientation:"horizontal", 
+			scrollEasing:"easeOutCirc", 
+			scrollEasingAmount:800, 
+			acceleration:4, 
+			scrollSpeed:800, 
+			noScrollCenterSpace:10, 
+			autoScrolling:0, 
+			autoScrollingSpeed:2000, 
+			autoScrollingEasing:"easeInOutQuad", 
+			autoScrollingDelay:500  
+		});
+	}
+	
+
 
 	$(".royalSlider").royalSlider({
         // options go here
@@ -9629,19 +9648,36 @@ $(document).ready(function(){
 
 
 $(document).on('load', function(){
-	$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
-		scrollerType:"hoverAccelerate", 
-		scrollerOrientation:"horizontal", 
-		scrollEasing:"easeOutCirc", 
-		scrollEasingAmount:800, 
-		acceleration:4, 
-		scrollSpeed:800, 
-		noScrollCenterSpace:10, 
-		autoScrolling:0, 
-		autoScrollingSpeed:2000, 
-		autoScrollingEasing:"easeInOutQuad", 
-		autoScrollingDelay:500  
-	});
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+		$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
+			scrollerType:"clickButtons", 
+			scrollerOrientation:"horizontal", 
+			scrollSpeed:2, 
+			scrollEasing:"easeOutCirc", 
+			scrollEasingAmount:600, 
+			acceleration:4, 
+			scrollSpeed:800, 
+			noScrollCenterSpace:10, 
+			autoScrolling:0, 
+			autoScrollingSpeed:2000, 
+			autoScrollingEasing:"easeInOutQuad", 
+			autoScrollingDelay:500 
+		});	
+	} else {
+		$('#first, #second, #third, #fourth, #fifth').thumbnailScroller({ 
+			scrollerType:"hoverAccelerate", 
+			scrollerOrientation:"horizontal", 
+			scrollEasing:"easeOutCirc", 
+			scrollEasingAmount:800, 
+			acceleration:4, 
+			scrollSpeed:800, 
+			noScrollCenterSpace:10, 
+			autoScrolling:0, 
+			autoScrollingSpeed:2000, 
+			autoScrollingEasing:"easeInOutQuad", 
+			autoScrollingDelay:500  
+		});
+	}
 });
 
 $(window).on('resize', function(){

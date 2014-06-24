@@ -1091,3 +1091,52 @@ nav {
 .people {
 	background: url('http://placehold.it/50x50/e6e6e6/ffffff') 0 0 repeat;
 }
+
+.prevlink {
+	left: 0px !important;
+	margin-left: 20px;	
+}
+
+.nextlink {
+	right: 0px !important;
+	margin-right: 20px;
+	left: inherit;
+	
+}
+.nextlink:after {
+	@include transform-origin(100% 100%);
+	@include transform(rotate(-45deg));
+}
+.nextlink:before {
+	@include transform-origin(100% 0%);
+	@include transform(rotate(45deg));	
+}
+.jTscrollerPrevButton {
+	background: rgba(255,255,255,.7) !important;
+	left: 20px;
+	margin-top: 30px;
+}
+.jTscrollerPrevButton:before {
+	content: '<';
+	text-align: center;
+	width: 40px;
+	color: black;
+	font-size: 18px;
+	line-height: 38px;
+	display: block;
+}
+
+.jTscrollerNextButton {
+	background: rgba(255,255,255,.7) !important;
+	right:20px;
+	margin-top: 30px;
+}
+.jTscrollerNextButton:before {
+	content: '>';
+	text-align: center;
+	width: 40px;
+	color: black;
+	font-size: 18px;
+	line-height: 38px;
+	display: block;
+}
