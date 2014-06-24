@@ -9706,8 +9706,9 @@ $('#studio').on('click', function(event){
 
 
 
-$(window).load(function(){
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+$(window).load(function() {
+
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
 
 		$('#first').thumbnailScroller({ 
 			scrollerType:"clickButtons", 
@@ -9766,7 +9767,8 @@ $(window).load(function(){
 			autoScrollingDelay:500 
 		});
 
-	{
+	} else {
+		
 		$("#first").thumbnailScroller({
 			scrollerType:"hoverAccelerate",
 			scrollerOrientation:"horizontal",
@@ -9820,4 +9822,5 @@ $(window).load(function(){
 			autoScrollingDelay:500
 		});
 	}
+
 });
